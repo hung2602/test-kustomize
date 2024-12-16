@@ -20,6 +20,7 @@ spec:
           - name: configmap-onplus-dev-api
             mountPath: /tmp/.env
             subPath: .env
+            readOnly: false
 
       containers:
         - name: ubuntu
