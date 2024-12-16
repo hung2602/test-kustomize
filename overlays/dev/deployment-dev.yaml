@@ -12,6 +12,7 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
           - |
+            apk add --no-cache gettext && \
             envsubst < /tmp/.env > /tmp/process/.env;
         envFrom:
           - secretRef:
