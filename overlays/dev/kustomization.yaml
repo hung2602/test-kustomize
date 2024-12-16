@@ -3,6 +3,11 @@ kind: Kustomization
 
 namespace: onplus
 
+configMapGenerator:
+- name: onplus-dev-api
+  files:
+  - env.properties
+
 resources:
 - ../../base
 
