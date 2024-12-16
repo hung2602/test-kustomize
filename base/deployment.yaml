@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-2204-debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu-2204-debug
+  template:
+    metadata:
+      labels:
+        app: ubuntu-2204-debug
+    spec:
+      containers:
+        - command:
+            - 'sleep'
+            - '123456'
+          image: cyrus02/ubuntu-2204-debug:latest
+          imagePullPolicy: Always
+          name: ubuntu
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN", "SYS_TIME", "NET_RAW"]

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-2204-debug
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - envFrom:
+            - secretRef:
+                name: onplus-dev-api
+      volumes:
+        - name: onplus-dev-api
+          secret:
+            defaultMode: 420
+            secretName: secret-dev
