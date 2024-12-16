@@ -6,7 +6,7 @@ namespace: onplus
 configMapGenerator:
 - name: onplus-dev-api
   files:
-  - env.properties
+  - .env
 
 resources:
 - ../../base
