@@ -36,6 +36,7 @@ spec:
         - name: configmap-onplus-dev-api
           configMap:
             name: onplus-dev-api
+            defaultMode: 720
         - name: onplus-dev-api
           secret:
             defaultMode: 420
