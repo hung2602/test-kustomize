@@ -6,6 +6,20 @@ spec:
   replicas: 2
   template:
     spec:
+      initContainers:
+      - name: substitute-env
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            envsubst < /tmp/.env > /tmp/.env;
+        envFrom:
+          - secretRef:
+              name: onplus-dev-api
+        volumeMounts:
+          - name: configmap-onplus-dev-api
+            mountPath: /tmp/.env
+
       containers:
         - name: ubuntu
           volumeMounts:
